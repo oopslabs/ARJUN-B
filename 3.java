@@ -40,10 +40,11 @@ public class matrix {
 	public void display(){
 		int i,j;
 		System.out.println(" the array elemets\n");
-		for(i=0;i<this.m;i++){
-			for(j=0;j<this.n;j++){
-				System.out.println(this.array[i][j]);
+		for(i=0;i<m;i++){
+			for(j=0;j<n;j++){
+				System.out.print(array[i][j]+"\t");
 			}
+			System.out.print("\n");
 		}		
 	}
 		
@@ -60,7 +61,6 @@ public class matrix {
 		temp.display();
 		System.out.println("-----END---------\t");
 		
-
 	}
 
 }
