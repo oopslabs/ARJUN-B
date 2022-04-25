@@ -1,41 +1,37 @@
 import java.util.*;
-
-interface shape {
-    float pi = 3.14f;
-
-    float area();
-
+class shape{
+    void area(int a){
+        float re=a*a;
+        System.out.print("area of square="+re+"\n");
+    }
+    void area(float l,float b){
+        float re=l*b;
+        System.out.print("area of rectangle="+re+"\n");
+    }
+    void area(float r){
+       double re=3.14*r*r;
+        System.out.print("area of circle="+re+"\n");
+    }
 }
 
-class rectangle implements shape {
-    Scanner s = new Scanner(System.in);
-    int l, b;
+public class area {
 
-    public float area() {
-        System.out.print("enter the length\n");
-        l = s.nextInt();
-        System.out.print("enter the width\n");
-        b = s.nextInt();
-        return (l * b);
+    
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        shape sh=new shape();
+        System.out.println("enter the side\n");
+        int a=s.nextInt();
+        sh.area(a);
+        System.out.println("enter the length of rectangle\n");
+        float l=s.nextInt();
+        System.out.println("enter the breadth of rectangle");
+        float b=s.nextInt();
+        sh.area(l, b);
+        System.out.println("enter the radius of circle\n");
+        float r=s.nextInt();
+        sh.area(r);
     }
 
-    class circle implements shape {
-        Scanner s = new Scanner(System.in);
-        int r;
-
-        public float area() {
-            System.out.print("enter the radius\n");
-            r = s.nextInt();
-            return (pi * r * r);
-        }
-    }
-
-    public class area {
-        public static void main(String args[]) {
-            circle c = new circle();
-            rectangle r = new rectangle();
-            System.out.println("area of circle\n" + c.area());
-            System.out.println("area of rectangle\n" + r.area());
-        }
-
+    
 }
