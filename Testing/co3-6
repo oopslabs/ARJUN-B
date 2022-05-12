@@ -1,0 +1,51 @@
+import java.util.*;
+interface areaPerimeter{
+	void area();
+	void perimeter();
+}
+class circle implements areaPerimeter{
+	float r;
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter the radius\n");
+	r=sc.nextFloat();
+	public void area(){
+		System.out.println("Area of circle:"+3.14*r*r);
+	}
+	public void perimeter(){
+		System.out.println("Perimeter of circle:"+2*3.14*r);
+	}
+}
+class rectangle implements areaPerimeter{
+	int l,b;
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter the length of rectangle\n");
+	l=sc.nextInt();
+	System.out.println("enter the breadth of rectangle\n");
+	b=sc.nextInt();
+	public void area(){
+		System.out.println("Area of rectangle:"+l*b);
+	}
+	public void perimeter(){
+		System.out.println("Perimeter of rectangle:"+2*l*b);
+	}
+}
+
+public class area1 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		circle c=new circle();
+		rectangle r=new rectangle();
+		System.out.println("enter your choice\n"+"1.Circle"+"2.Rectangle"+"\n");
+		int ch=sc.nextInt();
+		switch(ch){
+		case 1:	c.area();
+				c.perimeter();
+				break;
+		case 2: r.area();
+				r.perimeter();
+				break;
+		default:System.out.println("invalid choice\n");
+		
+		}			
+	}
+}
