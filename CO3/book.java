@@ -1,75 +1,93 @@
-import java.util.*;
-class book {
-	String name;
-	int price;
-	book(){
+import java.util.Scanner;
+public class qs4 {
+		public static void main(String[] args){
 		Scanner s=new Scanner(System.in);
-		System.out.print("enter the book name\n");
-		name=s.next();
-		System.out.print("enter the price\n");
-		price=s.nextInt();
-	}		
-}
-class publisher extends book{
-	String pname;
-	int edition;
-	publisher(){
-		super();
-		Scanner s=new Scanner(System.in);
-		System.out.print("enter the publisher name\n");
-		pname=s.next();
-		System.out.print("enter the edition\n");
-		edition=s.nextInt();
-	}
-}
- class fiction extends publisher{
-	 //String genre;
-	 String author;
-	 fiction(){
-		 super();
-		 Scanner s=new Scanner(System.in);
-//		 System.out.print("enter the genre name\n");
-//		 genre=s.next(); 
-		 System.out.print("enter the author name\n");
-		 author=s.next();
-	 }
-	 void display()
-		{
-			System.out.println("----THE FICTION BOOK DETAILS:-----");			
-			System.out.println("book name:"+name);
-			System.out.println("publisher:"+pname);
-			System.out.println("edition:"+edition);
-			System.out.println("author:"+author);
-			System.out.println("genere:"+"fiction");
-			System.out.println("price:"+price);
-		}
- }
- class literature extends publisher{
-	 String autho;
-	 literature(){
-		 super();
-		 Scanner s=new Scanner(System.in);
-		 System.out.print("enter the author name\n");
-		 autho=s.next();
-	 }
-	 void display(){
-		 System.out.print("------LITERATURE BOOK DETAILS-----\n");
-		 System.out.print("Name:"+name+"\n");
-		 System.out.print("Author:"+autho+"\n");
-		 System.out.print("Price:"+price+"\n");
-		 System.out.print("Publisher:"+pname+"\n");
-		 System.out.print("Genre:"+"Literature"+"\n");
-		 System.out.print("Edition:"+edition+"\n"); 
-	 } 
- }
-public class co3_4{
-	public static void main(String[] args) {
-		literature l=new literature();
-		fiction f=new fiction();
-		l.display();
-		f.display();
+			System.out.println("Enter the number of Literature books");
+			int l=s.nextInt();
+			Literature lbook[]=new Literature[l];
+			
+			for(int i=0;i<l;i++){
+				System.out.println("Enter the details of Literature book "+(i+1));
+				lbook[i]=new Literature();
+				
+			}
+			
+		
+			System.out.println("Enter the number of Fiction books");
+			int f=s.nextInt();
+			Fiction fbook[]=new Fiction[f];
+			
+			for(int i=0;i<f;i++){
+				System.out.println("Enter the details of Fiction book"+(i+1));
+				fbook[i]=new Fiction();
+			}
+			int ch;
+			do{
+				System.out.println("\n1-Literature Book Details\n2-Fiction\n0-Exit\nEnter the choice");
+				ch=s.nextInt();
+				switch(ch){
+					case 1:
+						System.out.println("\n**LITERATURE BOOKS**");
+						for(int i=0;i<l;i++){
+							lbook[i].display();
+						}
+						break;
+					case 2:
+						System.out.println("**FICTION BOOKS**");
+						for(int i=0;i<f;i++){
+							fbook[i].display();
+						}
+				}
+			}while(ch!=0);
+		
 
+		}
+		
 	}
-}
+
+	class Publisher{
+		String pub_name;
+		Scanner s=new Scanner(System.in);
+		Publisher(){
+			System.out.println("Enter the publisher name");
+			pub_name=s.nextLine();
+		}
+		
+	}
+		
+	class Book extends Publisher{
+		String b_name,author;
+		Book(){
+
+			System.out.println("Enter the book name");
+			b_name=s.nextLine();
+			System.out.println("Enter the author name");
+			author=s.nextLine();
+				
+		}
+		
+	}
+		
+	class Literature extends Book{
+		String type;
+		Literature(){
+			type="Literature";
+
+		}
+		
+		void display(){
+			System.out.println("\nBook Name:"+b_name+"\nAuthor"+author+"\nPublisher:"+pub_name+"\nType:"+type);
+		}
+	}
+		
+	class Fiction extends Book{
+		String type;
+		Fiction(){
+			type="Fiction";
+		}
+		void display(){
+			System.out.println("\nBook Name:"+b_name+"\nAuthor"+author+"\nPublisher:"+pub_name+"\nType:"+type);
+		}
+	}
 
 
