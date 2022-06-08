@@ -1,13 +1,14 @@
-package graphics;
-import graphics.*;
+
+import graphics.figures;
 import java.util.*;
 
 public class area{
-    public static void main(String[] args){
+    public static void main(String args[]){
         figures f=new figures();
-        Scanner sc=new Scanner(System.in);
-        int ch;
+       
+       int ch;
         do{
+            Scanner sc=new Scanner(System.in);
             System.out.println("1.area of rectangle\n2.area of circle\n3.area of triangle\n4.sqaure\n5.exit\nenter your choice");
             ch=sc.nextInt();
             switch(ch){
@@ -32,6 +33,7 @@ public class area{
                 case 5:System.out.println("exiting.....");
                 default:System.out.println("invalid choice\n");     
          }
-        }while(ch==5);
+        }
+        while(ch!=5);
     }
 }
