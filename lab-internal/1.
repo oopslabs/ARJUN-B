@@ -1,0 +1,54 @@
+import java.util.*;
+interface shape{
+    void area();
+    void peri();
+}
+
+class Triangle implements shape{
+    int b;
+    int h;
+    int a;
+    Triangle(int b,int h,int a){
+        this.b=b;
+        this.h=h;
+        this.a=a;
+    }
+    public void area(){
+        System.out.print("Area of triangle : "+(b*h*a)+"\n");
+    }
+    public void peri(){
+        System.out.print("perimeter of triangle : "+(b+h+a)+"\n");
+    }
+    
+}
+class circle implements shape{
+    int r;
+    circle(int r){
+        this.r=r;
+    }
+    public void area(){
+        System.out.print("Area of circle : "+(3.14*r*r)+"\n");
+    }
+    public void peri(){
+        System.out.print("perimeter of circle : "+(2*3.14*r)+"\n");
+    }
+}
+
+class area{
+     public static void main(String[] args) {
+        int h,b,r,a;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter side of triangle\n");
+        b=sc.nextInt();
+        h=sc.nextInt();
+        a=sc.nextInt();
+        Triangle t=new Triangle(b,h,a);
+        System.out.println("enter the radius\n");
+        r=sc.nextInt();
+        circle c=new circle(r);
+        t.area();
+        t.peri();
+        c.area();
+        c.peri();
+    }
+}
